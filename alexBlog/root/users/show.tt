@@ -1,0 +1,7 @@
+
+
+NAME:[% user.name %] <br/>
+EMAIL:[% user.email %]<br/>
+
+
+

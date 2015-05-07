@@ -1,0 +1,33 @@
+<table border="1">
+<th>title</th><th>Action</th></tr>
+[% # Display each post in a table row %]
+[% FOREACH post IN posts -%]
+<tr>
+
+<td>[% post.title %]</td>
+<td>[% # Add a link to show a post %]
+<a href="[% c.uri_for(c.controller.action_for('show'), [post.id]) %]">Show</a>
+</td>
+[% IF c.user_exists %]
+<td>[% # Add a link to delete a post %]
+<a href="[% c.uri_for(c.controller.action_for('delete'), [post.id]) %]">Delete</a>
+</td>
+
+<td>[% # Add a link to edit a post %]
+<a href="[% c.uri_for(c.controller.action_for('edit'), [post.id]) %]">Edit</a>
+</td>
+ [% END %]
+</tr>
+[% END -%]
+</table>
+
+<a href="[% c.uri_for(c.controller.action_for('form_new ')) %]">add new post</a>
+
+[% IF c.user_exists %]
+        Please Note: You are already logged in as '[% c.user.name %]'.
+        
+         You can <a href="[% c.uri_for(c.controller('users').action_for('logout')) %]">Logout</a><br>
+    [% ELSE %]
+        You need to<a href="[% c.uri_for('c.controller('users').action_for('form_login')') %]">Login</a> to use this application.
+       
+[% END %]

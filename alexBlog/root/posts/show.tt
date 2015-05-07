@@ -1,0 +1,34 @@
+
+title:[% post.title %]<br/>
+body:[% post.body %]<br/>
+
+
+<td><h1>Comments</h1></td>
+[% FOREACH comment IN comments -%]
+<tr>
+
+<td>[% comment.body %]</td>
+
+[% IF c.user_exists %]
+<form method="post" action="[% c.uri_for(c.controller('posts').action_for('delete_comment'),[post.id ])%]">
+<table>
+
+<input type="hidden" name="id" value=[% comment.id%] >
+
+</table>
+<input type="submit" name="Submit" value="Delete">
+</form>
+[% END -%]
+[% END -%]
+
+[% IF c.user_exists %]
+[% META title = 'Add comment' -%]
+
+<form method="post" action="[% c.uri_for(c.controller('posts').action_for('add_comment'),[post.id ])%]">
+<tr><td>comment:</td><td><input type="text" name="body"></td></tr>
+</td><td><input type="hidden" name="user_id" value="[% c.user.id %]"></td></tr>
+<input type="submit" name="Submit" value="Submit">
+</form>
+
+[% END -%]
+

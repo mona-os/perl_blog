@@ -1,0 +1,8 @@
+[% META title = 'Add Post' -%]
+<form method="post" action="[% c.uri_for('create') %]">
+
+title:<input type="text" name="title"></td></tr>
+Body:<input type="textarea" name="body"></td></tr>
+<input type="hidden" name="user_id" value="[% c.user.id %]"></td></tr>
+<input type="submit" name="Submit" value="Submit">
+

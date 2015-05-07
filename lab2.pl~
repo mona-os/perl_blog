@@ -1,0 +1,36 @@
+#!/usr/bin/perl
+#------------1------------
+
+$len = @ARGV;
+if (open $fh, '<', $ARGV[$i] ){
+for($i=0;$i<$len;$i++){
+
+	
+	while ( $line = <$fh> ) {
+    #chomp $line ;
+     #@row = split(" ", $line );
+     push @array,$line;
+     
+     }
+ }
+@reverse = reverse(@array);
+  print @reverse;
+}
+ 
+
+
+else{
+
+    #chomp $line ;
+     #@row = split(" ", $line );
+  push @array,@ARGV;  
+     
+ @reverse = reverse(@array);
+  print @reverse;
+
+}
+#------------------2----------------
+
+
+
+

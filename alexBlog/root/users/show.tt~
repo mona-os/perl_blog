@@ -1,0 +1,18 @@
+
+
+NAME:[% user.name %] <br/>
+EMAIL:[% user.email %]<br/>
+
+[% IF c.user_exists %]
+[% META title = 'Add comment' -%]
+<form method="post" action="[% c.uri_for(c.controller.action_for('addComment'), [user.id]) %]">
+<table>
+<tr><td>Username:</td><td><input type="text" name="name"></td></tr>
+<tr><td>Email:</td><td><input type="text" name="email"></td></tr>
+<tr><td>Password:</td><td><input type="password" name="password"></td></tr>
+</table>
+<input type="submit" name="Submit" value="Submit">
+</form>
+
+[% END -%]
+
