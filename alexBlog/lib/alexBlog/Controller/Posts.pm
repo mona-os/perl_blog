@@ -77,7 +77,7 @@ sub show :Chained('object') :PathPart('show') :Args(0) {
 my ($self, $c) = @_;
 #$c->stash(post =>$c->stash->{object});
 my $id = $c->stash->{object}->id ; 
-$c->stash(comments=> [$c->model('DBComments::Comment')->search({post_id => $id})]);
+$c->stash(comments=> [$c->model('DBPosts::Comment')->search({post_id => $id})]);
 $c->stash(post =>$c->stash->{object});
 $c->stash(template => 'posts/show.tt');
 }
